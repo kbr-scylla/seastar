@@ -621,6 +621,8 @@ public:
             f(*c.second);
         }
     }
+    // Does nothing if there is no connection with the given ID on this server.
+    void abort_connection(connection_id);
     gate& reply_gate() {
         return _reply_gate;
     }
