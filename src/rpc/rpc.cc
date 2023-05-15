@@ -1193,7 +1193,8 @@ future<> server::connection::send_unknown_verb_reply(std::optional<rpc_clock_typ
       try {
           it->second->abort();
       } catch (...) {
-          log_exception(*this, log_level::error, "fail to shutdown connection on user request", std::current_exception());
+          log_exception(*it->second, log_level::error,
+                        "fail to shutdown connection on user request", std::current_exception());
       }
   }
 
